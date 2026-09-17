@@ -69,7 +69,7 @@ ensure_gradle_home() {
 sync_workspace() {
     WORKSPACE="${HARD_OSS_WORKSPACE_ROOT:-/var/tmp/hard-oss-workspaces}/${REPO_KEY}"
     mkdir -p "$WORKSPACE"
-    rsync -a --delete \
+    rsync -rlpgoD --checksum --delete \
         --exclude '/.git/' \
         --exclude '/.gradle/' \
         --exclude '/build/' \
